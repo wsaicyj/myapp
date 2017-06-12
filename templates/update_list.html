@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Update</title>
+    <style type="text/css">
+        body {
+            margin: 30px;
+            font-family: sans-serif;
+            background: #fff;
+        }
+        h1 {
+            background: #ccf;
+            padding:5px;
+        }
+        div.update {
+            width:100%;
+            padding: 5px;
+        }
+        div.even {
+            background: #ddd;
+        }
+        div.timestamp {
+            float: left;
+            font-weight: bold;
+        }
+        div.text {
+            float: left;
+            padding-left: 10px;
+        }
+        div.clear {
+            clear: both;
+            height: 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Live Update</h1>
+    <p>This site will automatically refresh itself every minute with new content - please <b>do not</b> reload the page!</p>
+
+    {% if object_list %}
+        <div id="update-holder">
+            {% for objcet in object_list %}
+                <div class="update {% cycle even,odd %}" id="{{ objcet.id }}">
+                    <div class="timestamp">
+                        {{ object.timestamp|date:"Y-m-d H:i:s" }}
+                    </div>
+                    <div class="text">
+                        {{ objcet.text|linebreaksbr }}
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            {% endfor %}
+        </div>
+     {% else %}
+        <p>No updates yet - please check back later!</p>
+    {% endif %}
+</body>
+</html>

@@ -5,6 +5,6 @@ from django.conf.urls import url
 from .views import archive
 
 urlpatterns = [
-    # url(r'^$', archive, name='archive')
-    url(r'^archives/(?P<year>\d{4})/(?P<day>\d{2})/$', archive, name='archive')
+    url(r'^$', archive, name='archive')
+    # url(r'^archives/(?P<year>\d{4})/(?P<day>\d{2})/$', archive, name='archive')
 ]
