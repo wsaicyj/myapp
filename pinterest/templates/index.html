@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pinterest</title>
+</head>
+<body>
+{% for image in image_list %}
+
+    <img src="/upload/{{ image.img }}">
+    <p>{{ image.description }}</p>
+{% endfor %}
+
+</body>
+</html>

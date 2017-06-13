@@ -15,9 +15,20 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from pinterest import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^blog/', include('blog.urls', namespace='blog')),
+    url(r'^pinterest/', include('pinterest.urls', namespace='pinterest'))
     # url(r'^PhotoGallery/', include('PhotoGallery.urls', namespace='PhotoGallery')),
 ]
+
+# urlpatterns = [
+#     url(r'^admin/', admin.site.urls),
+#     url(r'^pinterest/', views.index)
+# ]
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

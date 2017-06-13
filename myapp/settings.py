@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'blog',
     'PhotoGallery',
     'livelog',
+    'pinterest',
 ]
 
 MIDDLEWARE = [
@@ -78,9 +79,17 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     # 'ENGINE': 'django.db.backends.sqlite3',
+    #     # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'myapp',
+        'ENGINE': 'django.db.backends.mysql',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '192.168.3.123',
+        'PORT': '3306'
     }
 }
 
@@ -123,3 +132,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'photos')
+MEDIA_ROOT = BASE_DIR
+MEDIA_URL = '/upload/'
